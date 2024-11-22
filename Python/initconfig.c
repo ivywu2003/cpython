@@ -1050,7 +1050,13 @@ _PyConfig_AsDict(const PyConfig *config)
     SET_ITEM_WSTRLIST(xoptions);
     SET_ITEM_WSTRLIST(warnoptions);
     SET_ITEM_WSTR(pythonpath_env);
-    printf("IVY: PYTHONHOME: %s\n", config->home);
+    printf("IVY: PYTHONHOME: ");
+    if (config->home != NULL) {
+      PyObject_Print(PyUnicode_FromWideChar(config->home, -1), stdout, 0);
+    } else {
+      printf("NULL");
+    }
+    printf("\n");
     SET_ITEM_WSTR(home);
     SET_ITEM_INT(module_search_paths_set);
     SET_ITEM_WSTRLIST(module_search_paths);
