@@ -2601,7 +2601,6 @@ fatal_error_dump_runtime(int fd, _PyRuntimeState *runtime)
         PUTS(fd, "initialized");
     }
     else if (runtime->core_initialized) {
-        PUTS(fd, "IVY: ");
         PUTS(fd, "core initialized");
     }
     else if (runtime->preinitialized) {
